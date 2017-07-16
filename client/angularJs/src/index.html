@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html ng-app="tracker" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Angular Car tracker Application</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-resource.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <meta charset="UTF-8">
+    <title>Angular Car tracker Application</title>
 </head>
 <body>
-<h1>Index</h1>
-<section ng-view>
+<div class="container">
+    <h1>Vehicle Alerts</h1>
+    <div class="panel panel-default">
+        <section ng-view></section>
+    </div>
+</div>
 
-</section>
 
 <script src="app/app.js"></script>
-<script src="app/controller/vehicleController.js"></script>
-<script src="app/service/vehiclesService.js"></script>
-
+<script src="app/controller/vehicle.controller.js"></script>
+<script src="app/service/vehicle.service.js"></script>
+<script src="app/controller/alert.controller.js"></script>
+<script src="app/service/alert.service.js"></script>
 </body>
 </html>

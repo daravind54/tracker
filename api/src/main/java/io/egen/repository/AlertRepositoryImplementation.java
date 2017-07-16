@@ -37,4 +37,10 @@ public class AlertRepositoryImplementation implements AlertRepository {
         typedQuery.setParameter("pastTime",timestamp1);
         return typedQuery.getResultList();
     }
+
+    public List<Alert> fetchByVin(String id) {
+        TypedQuery<Alert> typedQuery=entityManager.createNamedQuery("Alert.fetchByVin",Alert.class);
+        typedQuery.setParameter("paramVin",id);
+        return typedQuery.getResultList();
+    }
 }

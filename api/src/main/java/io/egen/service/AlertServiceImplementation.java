@@ -27,4 +27,9 @@ public class AlertServiceImplementation implements AlertService {
     public List<Alert> fetchAlertsLast2Hours() {
         return alertRepository.fetchAlertsLast2Hours();
     }
+
+    @Transactional(readOnly = true)
+    public List<Alert> fetchByVin(String id) {
+        return alertRepository.fetchByVin(id);
+    }
 }

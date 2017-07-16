@@ -12,6 +12,10 @@ import java.util.UUID;
         @NamedQuery(
                         name="Alert.fetchHighAlertsWithinLast2Hours",
                         query="select a from Alert a where a.priority='HIGH' and a.timestamp<=NOW()and a.timestamp>=:pastTime"
+        ),
+        @NamedQuery(
+                name="Alert.fetchByVin",
+                query="select a from Alert a where a.vin=:paramVin"
         )
 })
 public class Alert {

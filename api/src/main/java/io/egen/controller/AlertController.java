@@ -24,4 +24,9 @@ public class AlertController {
     public List<Alert> fetchAlertsLast2Hours(){
         return alertService.fetchAlertsLast2Hours();
     }
+
+    @RequestMapping(method = RequestMethod.GET, value="/{id}")
+    public List<Alert> fetchByVin(@PathVariable("id") String vin){
+        return alertService.fetchByVin(vin);
+    }
 }
