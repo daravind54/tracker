@@ -11,4 +11,5 @@ public interface VehicleService {
 
     List<Vehicle> create(Vehicle vehicle[]);
     Vehicle findOne(String vin);
+    List<Vehicle> fetchAll();
 }

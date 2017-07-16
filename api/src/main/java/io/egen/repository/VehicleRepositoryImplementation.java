@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,5 +30,10 @@ public class VehicleRepositoryImplementation implements VehicleRepository {
 
     public Vehicle update(Vehicle vehicle) {
         return entityManager.merge(vehicle);
+    }
+
+    public List<Vehicle> fetchAll() {
+        TypedQuery<Vehicle> typedQuery=entityManager.createNamedQuery("Vehicle.fetchAll",Vehicle.class);
+        return typedQuery.getResultList();
     }
 }

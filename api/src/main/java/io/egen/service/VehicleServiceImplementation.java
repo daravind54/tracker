@@ -39,4 +39,9 @@ public class VehicleServiceImplementation implements VehicleService
     public Vehicle findOne(String vin) {
         return vehicleRepository.findOne(vin);
     }
+
+    @Transactional(readOnly = true)
+    public List<Vehicle> fetchAll() {
+        return vehicleRepository.fetchAll();
+    }
 }

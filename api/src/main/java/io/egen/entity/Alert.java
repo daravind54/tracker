@@ -1,8 +1,6 @@
 package io.egen.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.UUID;
 
@@ -10,6 +8,12 @@ import java.util.UUID;
  * Created by darav on 6/29/2017.
  */
 @Entity
+@NamedQueries({
+        @NamedQuery(
+                        name="Alert.fetchHighAlertsWithinLast2Hours",
+                        query="select a from Alert a where a.priority='HIGH' and a.timestamp<=NOW()and a.timestamp>=:pastTime"
+        )
+})
 public class Alert {
 
     @Id
