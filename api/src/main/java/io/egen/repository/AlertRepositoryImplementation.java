@@ -27,7 +27,6 @@ public class AlertRepositoryImplementation implements AlertRepository {
     }
 
     public List<Alert> fetchAlertsLast2Hours() {
-        Timestamp timestamp=new Timestamp(System.currentTimeMillis());
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         calendar.add(Calendar.HOUR, -2);

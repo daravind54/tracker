@@ -11,11 +11,22 @@
         var self=this;
         self.getAlerts = getAlerts;
         self.getAlertsByVin=getAlertsByVin;
+
+        function getAlertsByVin(id){
+            return $http.get('http://localhost:8080/api/alerts/'+ id)
+                .then(AlertsuccessFn, errorFn);
+        }
+
+        function AlertsuccessFn(response) {
+            return response.data;
+        }
+
         function getAlerts() {
             return $http.get('http://localhost:8080/api/alerts')
                 .then(successFn, errorFn);
 
         }
+
         function successFn(response) {
             var vehicles=[];
             var res=[];
@@ -42,12 +53,7 @@
             return $q.reject('ERROR: ' + response.statusText);
         }
 
-        function getAlertsByVin(id){
-            return $http.get('http://localhost:8080/api/alerts/'+ id)
-                .then(AlertsuccessFn, errorFn);
-        }
-        function AlertsuccessFn(response) {
-            return response.data;
-        }
+
+
     }
 })();

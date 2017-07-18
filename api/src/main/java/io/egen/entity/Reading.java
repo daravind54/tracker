@@ -9,6 +9,10 @@ import java.util.UUID;
  */
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name="Reading.fetchCoordinatesByVin",
+                query = "select r from Reading r where r.vin=:paramVin and r.timestamp<=NOW()and r.timestamp>=:pastTime order by r.timestamp desc")
+})
 public class Reading {
 
     @Id

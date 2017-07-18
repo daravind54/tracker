@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('tracker',['ngRoute','ngResource'])
+        .module('tracker',['ngRoute','ngResource','uiGmapgoogle-maps','chart.js'])
         .config(moduleConfig);
 
     moduleConfig.$inject=['$routeProvider'];
@@ -19,6 +19,16 @@
                 templateUrl:'app/view/alerts.tmpl.html',
                 controller:'alertController',
                 controllerAs:'alertVm'
+            })
+            .when('/map/:vin',{
+                templateUrl:'app/view/map.tmpl.html',
+                controller:'mapController',
+                controllerAs:'mapVm'
+            })
+            .when('/analytics/:vin',{
+                templateUrl:'app/view/analytics.tmpl.html',
+                controller:'analyticsController',
+                controllerAs:'analyticsVm'
             })
             .otherwise({
                 redirectTo: '/vehicles'

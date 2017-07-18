@@ -5,6 +5,8 @@ import io.egen.service.ReadingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Created by darav on 6/24/2017.
  */
@@ -20,5 +22,10 @@ public class ReadingController {
     public Reading create(@RequestBody Reading reading){
         //System.out.println("Reading......");
         return readingService.create(reading);
+    }
+    @RequestMapping(method = RequestMethod.GET, value = "/{vin}")
+    public List<Reading> fetchDataByVin(@PathVariable String vin,
+                                        @RequestParam(value = "filer",required = false) String filter){
+        return readingService.fetchDataByVin(vin,filter);
     }
 }

@@ -29,4 +29,4 @@
             alertVm.sorter.reverse = !alertVm.sorter.reverse;
         }
     }
-}())
+}());
