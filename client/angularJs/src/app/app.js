@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('tracker',['ngRoute','ngResource','uiGmapgoogle-maps','chart.js'])
+        .module('tracker',['ngRoute','ngResource','uiGmapgoogle-maps','chart.js','angularUtils.directives.dirPagination'])
         .config(moduleConfig);
 
     moduleConfig.$inject=['$routeProvider'];
