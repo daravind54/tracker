@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by darav on 6/24/2017.
  */
@@ -28,6 +30,26 @@ public class ReadingServiceImplementation implements ReadingService
 
     @Autowired
     AlertService alertService;
+
+    @Transactional(readOnly = true)
+    public List<Reading> fetchDataByVin(String vin, String filter) {
+        if(filter==null) {
+            return readingRepository.fetchCoordinatesByVin(vin);
+        }
+        else if(filter.equals("last30min")){
+            readingRepository.fetchCoordinatesByVin(vin);
+        }
+        else if(filter.equals("last1Hr")){
+            readingRepository.fetchReadingByVinAnd1Hr(vin);
+        }
+        else if(filter.equals("last3Hr")){
+            readingRepository.fetchReadingByVinAnd3Hr(vin);
+        }
+        else if(filter.equals("last1Day")){
+            readingRepository.fetchReadingByVinAnd1Day(vin);
+        }
+        return null;
+    }
     @Transactional
     public Reading create(Reading reading) {
         //System.out.println("Reading Service......");
@@ -45,6 +67,8 @@ public class ReadingServiceImplementation implements ReadingService
         checkRules(reading);
         return reading;
     }
+
+
 
     public void checkRules(Reading reading){
 
